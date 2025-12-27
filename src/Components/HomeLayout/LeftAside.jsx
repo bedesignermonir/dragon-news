@@ -1,5 +1,6 @@
 import React from 'react';
-import Category from '../Pages/Category';
+import Category from '../Category';
+
 
 const LeftAside = () => {
     return (

@@ -8,8 +8,8 @@ const Navbar = () => {
             <section></section>
             <section className='flex gap-5 text-neutral'>
                 <NavLink to='/'>Home</NavLink>
-                <NavLink to='#'>About</NavLink>
-                <NavLink to='#'>Career</NavLink>
+                <NavLink to='/about'>About</NavLink>
+                <NavLink to='/career'>Career</NavLink>
             </section>
             <section className='flex gap-2'>
                 <img src={personImg} alt="" />
