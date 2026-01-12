@@ -8,7 +8,7 @@ import Bg from '../../assets/bg.png'
 
 const RightAside = () => {
     return (
-        <div>
+        <div className='sticky top-0'>
             <h1 className='font-bold text-2xl'>Login With</h1>
             <div className="social-login my-3">
                 <button className='btn btn-outline text-blue-500 w-full my-2'> <FaGoogle className='text-2xl' /> Login with Google</button>

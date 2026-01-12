@@ -4,7 +4,7 @@ import Category from '../Category';
 
 const LeftAside = () => {
     return (
-        <div>
+        <div className='sticky top-0'>
             <Category></Category>
         </div>
     );
