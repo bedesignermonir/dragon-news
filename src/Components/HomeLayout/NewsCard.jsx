@@ -1,10 +1,12 @@
 
 
 import React from 'react';
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
     // Destructure for easier access
     const {
+        id,
         title,
         author,
         image_url,
@@ -122,9 +124,9 @@ const NewsCard = ({ news }) => {
 
                 <p className="text-base text-gray-700 mb-2 leading-relaxed">
                     {details.substring(0, 150)}...
-                    <a href="#" className="font-semibold text-red-600 hover:underline ml-1">
+                    <Link to={`/newsDetails/${id}`} href="#" className="font-semibold text-red-600 hover:underline ml-1">
                         Read More
-                    </a>
+                    </Link>
                 </p>
 
                 {/* 3. Footer Section: Rating and Views */}

@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
+
+    const { createUser, setUser } = use(AuthContext);
+
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photo, email, password);
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                setUser(result.user)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    };
     return (
+
         <div className='flex items-center justify-center'>
+
 
             {/* 2. Increased max-w to 'max-w-lg' for more width */}
             <main className='w-full max-w-lg mx-auto'>
@@ -18,35 +44,35 @@ const Register = () => {
 
                         <hr className="my-4" />
 
-                        <fieldset className="fieldset gap-4">
+                        <form onSubmit={handleRegister} className="fieldset gap-4">
                             {/* Name */}
                             <label className="label font-semibold">Name</label>
-                            <input type="text" className="input input-bordered w-full" placeholder="Enter your Name" />
+                            <input type="text" name='name' className="input input-bordered w-full" placeholder="Enter your Name" />
                             {/* Name */}
 
                             {/* photo */}
                             <label className="label font-semibold">Photo URL</label>
-                            <input type="text" className="input input-bordered w-full" placeholder="Place your Photo URL" />
+                            <input type="text" name='photo' className="input input-bordered w-full" placeholder="Place your Photo URL" />
                             {/* photo */}
 
                             {/* email */}
                             <label className="label font-semibold">Email</label>
-                            <input type="email" className="input input-bordered w-full" placeholder="Email" />
+                            <input type="email" name='email' className="input input-bordered w-full" placeholder="Email" />
                             {/* email */}
 
                             {/* password */}
                             <label className="label font-semibold">Password</label>
-                            <input type="password" className="input input-bordered w-full" placeholder="Password" />
+                            <input type="password" name='password' className="input input-bordered w-full" placeholder="Password" />
                             {/* password */}
 
                             <label className="label">
-                                <input type="checkbox" defaultChecked className="checkbox" />
+                                <input type="checkbox" className="checkbox" />
                                 Accept <span className='font-bold'>Term & Conditions</span>
                             </label>
 
-                            <button className="btn btn-neutral mt-6 w-full">Register</button>
+                            <button type='submit' className="btn btn-neutral mt-6 w-full">Register</button>
 
-                        </fieldset>
+                        </form>
                     </div>
                 </div>
             </main>
